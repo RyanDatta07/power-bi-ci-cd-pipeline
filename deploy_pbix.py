@@ -17,6 +17,8 @@ def deploy_pbix():
     
     # Simulated wait or action
     print("PBIX deployment completed successfully!")
+
+    # Trigger the next step in the pipeline
  
 if __name__ == "__main__":
     deploy_pbix()
