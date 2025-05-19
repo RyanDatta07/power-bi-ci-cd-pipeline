@@ -1,26 +1,27 @@
 name: Deploy Power BI Report
- 
+
 on:
   push:
     branches: [ main ]
- 
+
 jobs:
   deploy-powerbi:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
- 
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
- 
+
       - name: Install Dependencies
         run: pip install requests
- 
+
       - name: Deploy PBIX (via REST API)
-run: python deploy_pbix.py
+        run: python deploy_pbix.py
         env:
           CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
